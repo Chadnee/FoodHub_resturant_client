@@ -1,0 +1,5 @@
+.back-img{
+    background: linear-gradient(rgba(0,0,0,0.6) , rgba(0,0,0,0.7)),url('/src/assets/images/soup.jpg') ;
+    background-size: cover;
+    width: auto;
+}
