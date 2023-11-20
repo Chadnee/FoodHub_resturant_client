@@ -24,7 +24,7 @@ const MyCart = () => {
           })
           .then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:5000/carts/${raw._id}`, {
+              fetch(`https://food-hub-server-pi.vercel.app/carts/${raw._id}`, {
                 method: "DELETE",
             })
             .then(res => res.json())

@@ -65,7 +65,7 @@ export const Router = createBrowserRouter([
         {
           path: "myPayment/:id",
           element:<MyPayment></MyPayment>,
-          loader: ({params}) => fetch(`http://localhost:5000/carts/myPayment/${params.id}`)
+          loader: ({params}) => fetch(`https://food-hub-server-pi.vercel.app/carts/myPayment/${params.id}`)
         },
         {
           path: "paymentHistory",

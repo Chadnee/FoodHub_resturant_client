@@ -16,7 +16,7 @@ const ItemFood = ({item}) => {
         console.log(item)
         if(user){
             const orderItem = {menuItemId: _id , name, image, price, recipe, category, email: user.email, status: 'payment_pending', booking_time: new Date()}
-            fetch("http://localhost:5000/carts", {
+            fetch("https://food-hub-server-pi.vercel.app/carts", {
                 method: "POST",
                 headers: {
                     "content-type" : "application/json"

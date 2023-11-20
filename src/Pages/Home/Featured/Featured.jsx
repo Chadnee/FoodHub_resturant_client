@@ -9,7 +9,7 @@ const Featured = () => {
             subHeading="--Check it Out"
             heading="from our menu">
              </SectionTitle>
-             <div className='w-2/3 mx-auto mb-8 md:flex justify-center py-8 md:px-16 lg:px-16 items-center gap-8'>
+             <div className='w-2/3 mx-auto mb-8 md:flex md:justify-center justify-start py-8 md:px-16 lg:px-16 items-center gap-8'>
                <img className='w-[320px] border-white h-[250px]' src={img1} alt="" />
                <div>
                 <p>{moment().format('MMMM D, YYYY,')};</p>

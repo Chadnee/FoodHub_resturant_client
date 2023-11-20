@@ -16,7 +16,7 @@ const SocialLogin = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 const savedUser = {name: loggedUser.displayName, email: loggedUser.email}
-                fetch("http://localhost:5000/users", {
+                fetch("https://food-hub-server-pi.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

@@ -25,7 +25,7 @@ const Register = () => {
                 userProfileUpdate(data.name)
                 .then(() => {
                     const saveUser = {name: data.name, email: data.email }
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://food-hub-server-pi.vercel.app/users', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"
@@ -38,8 +38,7 @@ const Register = () => {
                             console.log("User has been updated")
                     reset();
                     Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
+                       icon: 'success',
                         title: 'User successfully added',
                         showConfirmButton: false,
                         timer: 1500
@@ -91,9 +90,9 @@ const Register = () => {
     //}
 
     return (
-        <div className=''>
-            <div className="hero bg-green-500 min-h-screen ">
-                <div className="hero-content flex-col lg:flex-row-reverse px-24  mx-24 lg:justify-center lg:gap-24 items-center">
+        <div className='w-full h-full'>
+            <div className="hero min-h-screen ">
+                <div className="hero-content flex-col bg-gray-300 lg:flex-row-reverse lg:justify-center lg:gap-24 items-center">
                     <div className="text-center lg:text-left">
                         <img src="https://img.freepik.com/free-vector/green-background-chef-character-with-objects-ingredients_23-2147637817.jpg?t=st=1693595306~exp=1693595906~hmac=4eccfde023d9b4366309b1452921d830277afe8efbae87bee27adc091ee08bbd" alt="" />
                     </div>
@@ -118,11 +117,11 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" {...register("password",
-                                    { required: true, minLength: 6 }
+                                    { required: true, minLength: 6, pattern: /^(?=.*\d)(?=.*[A-Z])$/ }
                                 )} name="password" placeholder="Provide a strong password" className="input input-bordered" />
                                 {errors.password?.type === "required" && <p className="text-amber-800 text-[12px] font-bold">This field is required</p>}
                                 {errors.password?.type === "minLength" && <p className="text-amber-800 text-[12px] font-bold">Password must be at least six characters</p>}
-
+                                {errors.password?.type === "pattern" && <p className="text-amber-800 text-[12px] font-bold">Password must be one digit and one uppercase</p>}
                                 
                             </div>
                             <div className="form-control">

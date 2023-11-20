@@ -30,7 +30,7 @@ const ManageBookings = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/manage-bookings/${booking._id}`, {
+                fetch(`https://food-hub-server-pi.vercel.app/manage-bookings/${booking._id}`, {
                     method: "DELETE"
                 })
                 .then(res => res.json())

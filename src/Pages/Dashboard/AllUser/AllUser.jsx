@@ -22,7 +22,7 @@ const AllUser = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(user._id)
-                fetch(`http://localhost:5000/users/admin/${user._id}`, {
+                fetch(`https://food-hub-server-pi.vercel.app/users/admin/${user._id}`, {
                     method: "PATCH"
                 })
                     .then(res => res.json())
@@ -57,7 +57,7 @@ const AllUser = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(user._id)
-                fetch(`http://localhost:5000/users/admin/${user._id}`, {
+                fetch(`https://food-hub-server-pi.vercel.app/users/admin/${user._id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
