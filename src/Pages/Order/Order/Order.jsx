@@ -11,7 +11,7 @@ const Order = () => {
     //snFWkm2ytCTOecHK
     //food-hub
 
-    const categories = ['salad', 'pizza', 'soup', 'dessert']
+    const categories = ['salad', 'pizza', 'soup', 'dessert', 'popular']
     const {category} = useParams();
     const initialIndex = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialIndex);
@@ -20,13 +20,16 @@ const Order = () => {
    
     console.log(category);
 
+    const popular= menu.filter(item => item.category === "popular")
     const desserts = menu.filter(item => item.category === "dessert")
     const pizza = menu.filter(item => item.category === "pizza")
     const salad = menu.filter(item => item.category === "salad")
     const soup = menu.filter(item => item.category === "soup")
+    console.log(popular, desserts, pizza, salad, soup)
     return (
-        <div>
-            <Parallax
+        <div className='w-full flex flex-col items-center justify-center'>
+           <div>
+           <Parallax
                 bgImage={coverOrder}
                 bgImageAlt="our shop"
                 strength={-200}
@@ -44,19 +47,22 @@ const Order = () => {
                 </div>
             </Parallax>
 
-            <Tabs className="mb-10" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                <TabList className="mt-10 mb-7 items-center mx-auto flex justify-center gap-4 font-serif uppercase">
+            <Tabs className="mb-10 w-full " defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                <TabList className="mt-10 pl-12 md:pl-0 mb-7 items-center  flex justify-center gap-4 font-serif uppercase">
                     <Tab>Salad</Tab>
                     <Tab>Pizza</Tab>
                     <Tab>Soups</Tab>
                     <Tab>Desserts</Tab>
+                    <Tab>Popular</Tab>
                 </TabList>
-                <TabPanel><FoodOrder items={salad}></FoodOrder></TabPanel>
+                <TabPanel className=""><FoodOrder items={salad}></FoodOrder></TabPanel>
                 <TabPanel><FoodOrder items={pizza}></FoodOrder></TabPanel>
                 <TabPanel><FoodOrder items={soup}></FoodOrder></TabPanel>
                 <TabPanel><FoodOrder items={desserts}></FoodOrder></TabPanel>
+                <TabPanel><FoodOrder items={popular}></FoodOrder></TabPanel>
                 </Tabs>
-            
+           
+           </div>
         </div>
     );
 };

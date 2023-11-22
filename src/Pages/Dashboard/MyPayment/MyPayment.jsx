@@ -19,7 +19,7 @@ const MyPayment = () => {
     //const price = parseFloat(total.toFixed(2))
     
     return (
-        <div className='w-full my-32 mx-20 h-full'>
+        <div className='w-full my-32  h-full'>
             <h3 className='text-4xl text-center uppercase text-[#eaba4a]'>Payment</h3>
              <Elements stripe={stripePromise}>
                 <CheckOut _id = {_id}  menuItemId = {menuItemId} name = {name} image = {image} 

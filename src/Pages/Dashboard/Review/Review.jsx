@@ -31,21 +31,7 @@ const Review = () => {
                     reset()
                     Swal.fire({
                         icon: "success",
-                        title: "Thanks for your precious review",
-                        showClass: {
-                          popup: `
-                            animate__animated
-                            animate__fadeInUp
-                            animate__faster
-                          `
-                        },
-                        hideClass: {
-                          popup: `
-                            animate__animated
-                            animate__fadeOutDown
-                            animate__faster
-                          `
-                        },
+                        title: "Thanks for providing a precious review",
                         showConfirmButton: false,
                         timer: 1500
                       });
@@ -55,7 +41,7 @@ const Review = () => {
 
 
     return (
-        <div className='h-full w-full my-7 px-16'>
+        <div className='h-full w-full my-7 md:px-16 px-7'>
             <SectionTitle subHeading="Give a review" heading="short Review"></SectionTitle>
             <div className='text[30px] text-center flex flex-col items-center mb-7'>
             <ReactStars

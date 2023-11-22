@@ -10,7 +10,9 @@ import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 const MyCart = () => {
      const [cart, refetch] = useCart()
      console.log(cart)
-     const total = cart.reduce((sum, item)=> item.price+sum, 0);
+     const pendingCart = cart?.filter(carts =>(carts?.status === "payment_pending"))
+     console.log(pendingCart.length)
+     const total = pendingCart.reduce((sum, item)=> item.price+sum, 0);
      const handleDelete = raw =>{
         console.log(raw)
         Swal.fire({
@@ -43,10 +45,10 @@ const MyCart = () => {
      }
     
      return (
-        <div className='w-full h-full my-7 px-14'>
+        <div className='w-full h-full my-7 md:px-14'>
           <SectionTitle subHeading="All are pending" heading=" my cart"></SectionTitle>
             <div className='pb-8 font-bold  flex justify-between'>
-                <p>Total Order: {cart.length}</p>
+                <p>Total Order: {cart? (cart.filter(raw => raw.status === 'payment_pending').length) : 0}</p>
                 <p>Payment pending: ${total}</p>
             </div>
             <div className="overflow-x-auto">

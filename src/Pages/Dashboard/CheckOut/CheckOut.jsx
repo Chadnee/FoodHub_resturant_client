@@ -107,21 +107,7 @@ const CheckOut = ({ _id, menuItemId, name, image, recipe, price, category }) => 
             
             Swal.fire({
               icon: "success",
-              title: "Your payment has been suucess! see your activity",
-              showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeInUp
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOutDown
-                  animate__faster
-                `
-              },
+              title: "Your payment has been success & see your activity",
               showConfirmButton: false,
               timer: 1500
             });

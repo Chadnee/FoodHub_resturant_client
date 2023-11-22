@@ -49,7 +49,7 @@ const AddItem = () => {
     console.log(img_hosting_token);
 
     return (
-        <div className='w-full px-16 h-full py-7  '>
+        <div className='w-full md:px-16 px-7 h-full py-7  '>
             <SectionTitle subHeading="What's new" heading="Add an item"></SectionTitle>
 
             <form onSubmit={handleSubmit(onSubmit)} className='bg-[#E8E8E8] rounded-lg px-10 py-7'>

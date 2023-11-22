@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Cover from "../../../Shared/Cover/Cover";
+import imgpopular from "../../../assets/menu/pizza-bg.jpg"
 import imgdesert from "../../../assets/menu/dessert-bg.jpeg"
 import imgpizza from "../../../assets/menu/pizza-bg.jpg"
 import imgsalad from "../../../assets/menu/salad-bg.jpg"
@@ -13,6 +14,7 @@ const Menu = () => {
 
     const [menu] = useMenu();
     const offered = menu.filter(item => item.category === "offered")
+    const popular = menu.filter(item => item.category === "popular")
     const desserts = menu.filter(item => item.category === "dessert")
     const pizza = menu.filter(item => item.category === "pizza")
     const salad = menu.filter(item => item.category === "salad")
@@ -26,8 +28,14 @@ const Menu = () => {
            {/** offer item*/}
             <SectionTitle subHeading= "--Don't miss" 
               heading = "Today's offer"></SectionTitle>
-              <MenuCategory items={offered}></MenuCategory>
+              {/* <MenuCategory items={offered}></MenuCategory> */}
 
+              {/**popular item */}
+              <MenuCategory 
+              items={popular} 
+              title = "popular" 
+              img = {imgpopular}
+              ></MenuCategory>
               {/**desserts item */}
               <MenuCategory 
               items={desserts} 

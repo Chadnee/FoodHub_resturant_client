@@ -52,6 +52,7 @@ const Register = () => {
             })
             .catch(error => {
                 console.log(error.message)
+                return alert(error.message)
             })
 
     }
@@ -89,6 +90,8 @@ const Register = () => {
     //        .catch(error => console.log(error.message))
     //}
 
+
+    ///^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/ 
     return (
         <div className='w-full h-full'>
             <div className="hero min-h-screen ">
@@ -117,11 +120,10 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" {...register("password",
-                                    { required: true, minLength: 6, pattern: /^(?=.*\d)(?=.*[A-Z])$/ }
+                                    { required: true,  pattern: /^(?=.*[0-9])(?=.*[A-Z]).{6,16}$/ }
                                 )} name="password" placeholder="Provide a strong password" className="input input-bordered" />
                                 {errors.password?.type === "required" && <p className="text-amber-800 text-[12px] font-bold">This field is required</p>}
-                                {errors.password?.type === "minLength" && <p className="text-amber-800 text-[12px] font-bold">Password must be at least six characters</p>}
-                                {errors.password?.type === "pattern" && <p className="text-amber-800 text-[12px] font-bold">Password must be one digit and one uppercase</p>}
+                                {errors.password?.type === "pattern" && <p className="text-amber-800 text-[12px] font-bold">Password must be one digit one uppercase and six characters</p>}
                                 
                             </div>
                             <div className="form-control">

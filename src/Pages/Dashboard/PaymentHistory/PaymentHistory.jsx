@@ -24,7 +24,7 @@ const PaymentHistory = () => {
 
 
     return (
-        <div className='h-full w-full my-8 pl-20 pr-20'>
+        <div className='h-full w-full my-8 md:pl-20 md:pr-20'>
             <SectionTitle  subHeading="At a glance" heading="payment history"></SectionTitle>
             <div className="overflow-x-auto mt-16">
   <table className="table">

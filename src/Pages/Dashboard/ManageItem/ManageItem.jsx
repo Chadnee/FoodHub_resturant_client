@@ -46,7 +46,7 @@ const ManageItem = () => {
         <div className='w-full md:py-20 px-10 h-full'>
             <SectionTitle subHeading="--Hurry Up--" heading="manage a item"></SectionTitle>
 
-            <div className="overflow-x-auto ">
+            <div className="overflow-hidden md:overflow-x-auto ">
                 <table className="table">
                     {/* head */}
                     <thead>

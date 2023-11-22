@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaBowlRice, FaCarSide, FaMoneyCheckDollar, FaUserLarge } from "react-icons/fa6";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid,  PieChart, Pie, ResponsiveContainer  } from 'recharts';
-
+import './AdminHome.css'
 const AdminHome = () => {
     const { user, loading } = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure();
@@ -48,79 +48,150 @@ const AdminHome = () => {
     // const customers = stats.find( customer => customer.users?.role!=="admin")
     // console.log(customers);
     return (
-        <div className="h-full mt-10">
-            <p className='text-3xl mb-20 uppercase font-[f]'>Hi, Welcome back</p>
+        <div className="h-full w-full margin mt-3 md:m-10">
+        <p className='text-3xl mb-10 mt-5 md:text-start text-center uppercase pl-3 font-[f]'>Hey, Welcome back !!</p>
 
-            <div className="lg:flex mb-20 md:flex justify-center gap-4">
-
-                <div className="stat flex justify-center  items-center bg-gradient-to-r from-purple-700 to-purple-100">
-                    <div className=" text-white text-[90px]">
-                        <FaMoneyCheckDollar></FaMoneyCheckDollar>
-                    </div>
-                    <div className="flex flex-col ">
-                        <div className="stat-value text-white text-center">${stats.revenue}</div>
-                        <div className="stat-title text-white font-bold">Revenue</div>
-                    </div>
-                </div>
-
-                <div className="stat flex justify-center items-center bg-gradient-to-r from-[#D3A256] to-[#FDE8C0]">
-                    <div className=" text-white text-[70px]">
-                        <FaUserLarge></FaUserLarge>
-                    </div>
-                    <div className="flex flex-col ">
-                        <div className="stat-value text-white text-center">{stats.users}</div>
-                        <div className="stat-title text-white font-bold">Customers</div>
-                    </div>
-                </div>
-
-                <div className="stat flex justify-center items-center bg-gradient-to-r from-[#FE4880] to-[#FECDE9]">
-                    <div className=" text-white text-[70px]">
-                        <FaBowlRice></FaBowlRice>
-                    </div>
-                    <div className="flex flex-col ">
-                        <div className="stat-value text-white text-center">{stats.products}</div>
-                        <div className="stat-title text-white font-bold">Menu Items</div>
-                    </div>
-                </div>
-
-                <div className="stat flex justify-center items-center bg-gradient-to-r from-[#6AAEFF] to-[#B6F7FF]">
-                    <div className=" text-white text-[70px]">
-                        <FaCarSide></FaCarSide>
-                    </div>
-                    <div className="flex flex-col ">
-                        <div className="stat-value text-white text-center">{stats.orders}</div>
-                        <div className="stat-title text-white font-bold">Orders</div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div className="flex justify-center">
-                <div className="w-1/2">
-                    <BarChart
-                        width={500}
-                        height={300}
-                        data={chartData}
-                        margin={{
-                            top: 20,
-                            right: 30,
-                            left: 20,
-                            bottom: 5,
-                        }}
-                    >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis chartDKey="category" />
-                        <YAxis />
-                        <Bar dataKey="total" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                            {chartData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-                            ))}
-                        </Bar>
-                    </BarChart>
-                </div>
-               
-            </div>
+        <div className="flex md:flex-col flex-col-reverse">
+       
+            <div className="lg:flex w-full mb-20 md:flex justify-center gap-4">
+ <div className="stat flex justify-center  items-center bg-gradient-to-r from-purple-700 to-purple-100">
+     <div className=" text-white text-[90px]">
+         <FaMoneyCheckDollar></FaMoneyCheckDollar>
+     </div>
+     <div className="flex flex-col ">
+         <div className="stat-value text-white text-center">${stats.revenue}</div>
+         <div className="stat-title text-white font-bold">Revenue</div>
+     </div>
+ </div>
+ <div className="stat flex justify-center items-center bg-gradient-to-r from-[#D3A256] to-[#FDE8C0]">
+     <div className=" text-white text-[70px]">
+         <FaUserLarge></FaUserLarge>
+     </div>
+     <div className="flex flex-col ">
+         <div className="stat-value text-white text-center">{stats.users}</div>
+         <div className="stat-title text-white font-bold">Customers</div>
+     </div>
+ </div>
+ <div className="stat flex justify-center items-center bg-gradient-to-r from-[#FE4880] to-[#FECDE9]">
+     <div className=" text-white text-[70px]">
+         <FaBowlRice></FaBowlRice>
+     </div>
+     <div className="flex flex-col ">
+         <div className="stat-value text-white text-center">{stats.products}</div>
+         <div className="stat-title text-white font-bold">Menu Items</div>
+     </div>
+ </div>
+ <div className="stat flex justify-center items-center bg-gradient-to-r from-[#6AAEFF] to-[#B6F7FF]">
+     <div className=" text-white text-[70px]">
+         <FaCarSide></FaCarSide>
+     </div>
+     <div className="flex flex-col ">
+         <div className="stat-value text-white text-center">{stats.orders}</div>
+         <div className="stat-title text-white font-bold">Orders</div>
+     </div>
+ </div>
+ </div>
+ <div className="flex justify-center">
+<div className="w-1/2">   <BarChart
+         width={500}
+         height={300}
+         data={chartData}
+         margin={{
+             top: 20,
+             right: 30,
+             left: 20,
+             bottom: 5,
+         }}
+     >
+         <CartesianGrid strokeDasharray="3 3" />
+         <XAxis chartDKey="category" />
+         <YAxis />
+         <Bar dataKey="total" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+             {chartData.map((entry, index) => (
+                 <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+             ))}
+         </Bar>   </BarChart>
+</div>
+</div>
         </div>
+
+
+    </div>
+//         <div className="h-full w-full mt-3 md:m-10">
+//             <p className='text-3xl mb-10 mt-5 md:text-start text-center uppercase pl-3 font-[f]'>Hey, Welcome back !!</p>
+//            <div className="flex md:flex-col flex-col-reverse items-center " >
+            
+//            <div className="lg:flex w-full mb-20 md:flex justify-center gap-4">
+
+// <div className="stat flex justify-center  items-center bg-gradient-to-r from-purple-700 to-purple-100">
+//     <div className=" text-white text-[90px]">
+//         <FaMoneyCheckDollar></FaMoneyCheckDollar>
+//     </div>
+//     <div className="flex flex-col ">
+//         <div className="stat-value text-white text-center">${stats.revenue}</div>
+//         <div className="stat-title text-white font-bold">Revenue</div>
+//     </div>
+// </div>
+
+// <div className="stat flex justify-center items-center bg-gradient-to-r from-[#D3A256] to-[#FDE8C0]">
+//     <div className=" text-white text-[70px]">
+//         <FaUserLarge></FaUserLarge>
+//     </div>
+//     <div className="flex flex-col ">
+//         <div className="stat-value text-white text-center">{stats.users}</div>
+//         <div className="stat-title text-white font-bold">Customers</div>
+//     </div>
+// </div>
+
+// <div className="stat flex justify-center items-center bg-gradient-to-r from-[#FE4880] to-[#FECDE9]">
+//     <div className=" text-white text-[70px]">
+//         <FaBowlRice></FaBowlRice>
+//     </div>
+//     <div className="flex flex-col ">
+//         <div className="stat-value text-white text-center">{stats.products}</div>
+//         <div className="stat-title text-white font-bold">Menu Items</div>
+//     </div>
+// </div>
+
+// <div className="stat flex justify-center items-center bg-gradient-to-r from-[#6AAEFF] to-[#B6F7FF]">
+//     <div className=" text-white text-[70px]">
+//         <FaCarSide></FaCarSide>
+//     </div>
+//     <div className="flex flex-col ">
+//         <div className="stat-value text-white text-center">{stats.orders}</div>
+//         <div className="stat-title text-white font-bold">Orders</div>
+//     </div>
+// </div>
+
+// </div>
+
+// <div className="flex justify-center">
+// <div className="w-1/2">
+//     <BarChart
+//         width={500}
+//         height={300}
+//         data={chartData}
+//         margin={{
+//             top: 20,
+//             right: 30,
+//             left: 20,
+//             bottom: 5,
+//         }}
+//     >
+//         <CartesianGrid strokeDasharray="3 3" />
+//         <XAxis chartDKey="category" />
+//         <YAxis />
+//         <Bar dataKey="total" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+//             {chartData.map((entry, index) => (
+//                 <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+//             ))}
+//         </Bar>
+//     </BarChart>
+// </div>
+
+// </div>
+//            </div>
+//         </div>
     );
 };
 

@@ -46,7 +46,7 @@ const SocialLogin = () => {
             <div className="divider"></div>
 
             <div className="text-center">
-                <div onClick={handleGoogleLogin} className="btn bg-black text-white btn-circle text-[30px] btn-outline">
+                <div onClick={handleGoogleLogin} className="btn bg-white text-black btn-circle text-[30px] btn-outline">
                     <FaGofore></FaGofore>
                 </div>
 

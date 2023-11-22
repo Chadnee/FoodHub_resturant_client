@@ -51,7 +51,7 @@ const ManageBookings = () => {
     }
 
     return (
-        <div className='h-full my-10 px-10 w-full'>
+        <div className='h-full my-10 md:px-10 w-full'>
             <div>
                 <SectionTitle subHeading="---At a Glance---"
                     heading="manage bookings"></SectionTitle>

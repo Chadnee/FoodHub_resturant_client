@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { FaTrashAlt, FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/UseAxiosSecure';
+import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 
 const AllUser = () => {
 
@@ -11,6 +12,8 @@ const AllUser = () => {
         return res.data;
 
     })
+    // const admin = users.map(user =>{if (user?.role === "admin")  console.log(user.length)})
+    // console.log(admin)
 
     const handleMakeAdmin = (user) => {
         Swal.fire({
@@ -79,13 +82,15 @@ const AllUser = () => {
 
 
     return (
-        <div className='w-full px-10 '>
-            {users.length}
+        <div className='w-full px-7 mt-7 md:px-14 '>
+            <SectionTitle subHeading="At a Glance" heading="All Users"></SectionTitle>
+            {/* <p className=' font-bold  pt-5'>Total User: {users.length}</p> */}
+            {/* <p className=' font-bold pb-5'>Admin: {users.filter(user => (user?.role === "admin").length)}</p> */}
 
-            <div className="overflow-x-auto">
-                <table className="table">
+            <div className="overflow-x-auto ">
+                <table className="table mt-4">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-orange-700 text-white'>
                         <tr>
                             <th>No.</th>
                             <th>Name</th>

@@ -12,11 +12,17 @@ const Dashboard = () => {
    const [isAdmin] = useAdmin();
 
     return (
-        <div>
-            <div className="drawer lg:drawer-open">
+
+
+
+
+
+      
+        <div className='w-full h-full'>
+            <div className="drawer w-full lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-  <div className="drawer-content flex flex-col justify-center">
-  <label htmlFor="my-drawer-2" className="text-white w-full bg-amber-700 ps-3 text-2xl py-2 rounded-lg drawer-button lg:hidden"><FaAlignJustify></FaAlignJustify></label>
+  <div className="drawer-content flex flex-col w-full justify-center">
+  <label htmlFor="my-drawer-2" className="text-white  w-full bg-amber-700 md:ps-3 text-3xl py-2 rounded-lg drawer-button lg:hidden"><FaAlignJustify></FaAlignJustify></label>
   <Outlet></Outlet>
     
     
@@ -24,10 +30,10 @@ const Dashboard = () => {
   </div> 
   <div className="drawer-side">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 min-h-full font-semibold bg-orange-700 text-white">
+    <ul className="menu h-full p-4 w-80  font-semibold bg-orange-700 text-white">
       {/* Sidebar content here */}
       {isAdmin? <div>
-        <li className='uppercase'> <Link to="/dashboard/Adminhome"><FaHome></FaHome>Admin Home</Link></li>
+        <li className='uppercase'> <Link to="/dashboard/adminhome"><FaHome></FaHome>Admin Home</Link></li>
       <li className='uppercase'> <Link to="/dashboard/addItems"><FaUtensils></FaUtensils> add Items</Link></li>
       <li className='uppercase'> <Link to="/dashboard/manageItems"><FaWallet></FaWallet>Manage items</Link></li>
       <li className='uppercase'> <Link to="/dashboard/manageBookings" ><FaBook></FaBook> Manage bookings</Link></li>

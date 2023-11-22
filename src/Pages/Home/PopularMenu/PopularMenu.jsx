@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import MenuItem from '../../../Shared/MenuItem/MenuItem';
 import useMenu from '../../../hooks/Usemenu';
 
@@ -19,7 +19,7 @@ const PopularMenu = () => {
    //         })
    // }, [])
     return (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col mx-3 items-center'>
             <SectionTitle
                 subHeading="--Check it Out--"
                 heading="From Our Menu"
@@ -32,7 +32,7 @@ const PopularMenu = () => {
                         key={item._id} item={item}></MenuItem>)
                 }
             </div>
-            <button className='btn btn-outline uppercase  text-center mt-14 mb-7 mx-auto border-0 border-b-4 marker:'>view full menu</button>
+            <Link to = "/order/salad"><button className='btn btn-outline uppercase  text-center mt-14 mb-7 mx-auto border-0 border-b-4 marker:'>view full menu</button></Link>
             <p className='bg-black text-white px-16 py-10 mt-10 mb-16 text-3xl'>Call us: +88 0195675787</p>
 
         </div>

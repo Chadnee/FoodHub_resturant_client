@@ -96,7 +96,7 @@ const Login = () => {
           <input type="submit" disabled = {disabled} className = "btn bg-emerald-800 border-0" value="Login" required/>
         </div>
         <SocialLogin></SocialLogin>
-         <div className='text-[12px] mb-10 mt-3 font-[italic]'><p>Haven't no account? Please <Link to = '/register' className='text-white link link-hover'>Register</Link></p></div>
+         <div className='text-[12px] mb-10 mt-3 font-[italic] text-center'><p>Haven't no account? Please <Link to = '/register' className='text-white link link-hover'>Register</Link></p></div>
       </form>
     </div>
   </div>
